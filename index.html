@@ -1,175 +1,70 @@
-<!DOCTYPE html>
+kkk<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Meet - Find Your Match</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #fce3ec, #ffe8d6);
-            font-family: 'Arial', sans-serif;
-            overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .header-text {
-            text-align: center;
-            margin-top: 20px;
-            margin-bottom: 20px;
-            color: #d6336c;
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        /* الحاوية اللي بتخفي أي حاجة بره الشاشة */
-        .marquee-wrapper {
-            width: 100vw;
-            overflow: hidden;
-            position: relative;
-            display: flex;
-            margin: 15px 0;
-        }
-
-        /* المحتوى اللي بيتحرك */
-        .marquee-content {
-            display: flex;
-            gap: 15px;
-            width: max-content;
-            animation: scroll-left 20s linear infinite;
-        }
-
-        .marquee-content.reverse {
-            animation: scroll-right 20s linear infinite;
-        }
-
-        /* كارت الصورة */
-        .profile-card {
-            width: 150px;
-            height: 200px;
-            border-radius: 15px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            overflow: hidden;
-            position: relative;
-            flex-shrink: 0;
-        }
-
-        .profile-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .profile-name {
-            position: absolute;
-            bottom: 10px;
-            left: 10px;
-            color: white;
-            font-weight: bold;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
-            font-size: 18px;
-        }
-
-        .heart-icon {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: white;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #d6336c;
-            font-size: 16px;
-        }
-
-        /* حركة الشريط */
-        @keyframes scroll-left {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        @keyframes scroll-right {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0); }
-        }
-
-        /* زرار التحميل */
-        .download-btn {
-            background-color: #ff4d6d;
-            color: white;
-            padding: 15px 40px;
-            border: none;
-            border-radius: 30px;
-            font-size: 20px;
-            font-weight: bold;
-            margin-top: 40px;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
-            transition: transform 0.2s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .download-btn:active {
-            transform: scale(0.95);
-        }
+        body { margin: 0; padding: 0; background: linear-gradient(135deg, #fce3ec, #ffe8d6); font-family: 'Arial', sans-serif; overflow-x: hidden; display: flex; flex-direction: column; align-items: center; min-height: 100vh; }
+        .header-text { text-align: center; margin-top: 20px; margin-bottom: 20px; color: #d6336c; font-size: 24px; font-weight: bold; }
+        .marquee-wrapper { width: 100vw; overflow: hidden; position: relative; display: flex; margin: 15px 0; }
+        .marquee-content { display: flex; gap: 15px; width: max-content; animation: scroll-left 25s linear infinite; }
+        .marquee-content.reverse { animation: scroll-right 25s linear infinite; }
+        .profile-card { width: 160px; height: 220px; border-radius: 15px; background-color: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.1); overflow: hidden; position: relative; flex-shrink: 0; }
+        .profile-card img { width: 100%; height: 100%; object-fit: cover; }
+        .profile-name { position: absolute; bottom: 10px; left: 10px; color: white; font-weight: bold; text-shadow: 1px 1px 3px rgba(0,0,0,0.8); font-size: 18px; }
+        .heart-icon { position: absolute; top: 10px; right: 10px; background: white; border-radius: 50%; width: 30px; height: 30px; display: flex; justify-content: center; align-items: center; color: #d6336c; font-size: 16px; }
+        @keyframes scroll-left { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes scroll-right { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+        .download-btn { background-color: #ff4d6d; color: white; padding: 15px 40px; border: none; border-radius: 30px; font-size: 20px; font-weight: bold; margin-top: 40px; cursor: pointer; box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4); transition: transform 0.2s; text-decoration: none; display: inline-block; }
+        .download-btn:active { transform: scale(0.95); }
     </style>
 </head>
 <body>
 
     <div class="header-text">Find Your Perfect Match Today</div>
 
-    <!-- الشريط الأول -->
     <div class="marquee-wrapper">
         <div class="marquee-content">
-            <!-- المجموعة الأصلية من الصور -->
-            <div class="profile-card"><img src="https://picsum.photos/200/300?random=1" alt="Ella"><div class="profile-name">Ella</div><div class="heart-icon">❤</div></div>
-            <div class="profile-card"><img src="https://picsum.photos/200/300?random=2" alt="Ava"><div class="profile-name">Ava</div><div class="heart-icon">❤</div></div>
-            <div class="profile-card"><img src="https://picsum.photos/200/300?random=3" alt="Olivia"><div class="profile-name">Olivia</div><div class="heart-icon">❤</div></div>
-            <div class="profile-card"><img src="https://picsum.photos/200/300?random=4" alt="Emma"><div class="profile-name">Emma</div><div class="heart-icon">❤</div></div>
-            <div class="profile-card"><img src="https://picsum.photos/200/300?random=9" alt="Sophia"><div class="profile-name">Sophia</div><div class="heart-icon">❤</div></div>
-            <div class="profile-card"><img src="https://picsum.photos/200/300?random=10" alt="Isabella"><div class="profile-name">Isabella</div><div class="heart-icon">❤</div></div>
-
-            <!-- المجموعة المكررة (عشان نمنع الفراغ) -->
-            <div class="profile-card"><img src="https://picsum.photos/200/300?random=1" alt="Ella"><div class="profile-name">Ella</div><div class="heart-icon">❤</div></div>
-            <div class="profile-card"><img src="https://picsum.photos/200/300?random=2" alt="Ava"><div class="profile-name">Ava</div><div class="heart-icon">❤</div></div>
-            <div class="profile-card"><img src="https://picsum.photos/200/300?random=3" alt="Olivia"><div class="profile-name">Olivia</div><div class="heart-icon">❤</div></div>
-            <div class="profile-card"><img src="https://picsum.photos/200/300?random=4" alt="Emma"><div class="profile-name">Emma</div><div class="heart-icon">❤</div></div>
-            <div class="profile-card"><img src="https://picsum.photos/200/300?random=9" alt="Sophia"><div class="profile-name">Sophia</div><div class="heart-icon">❤</div></div>
-            <div class="profile-card"><img src="https://picsum.photos/200/300?random=10" alt="Isabella"><div class="profile-name">Isabella</div><div class="heart-icon">❤</div></div>
+            <!-- الصور المحلية -->
+            <div class="profile-card"><img src="images/1.jpg" alt="Ella"><div class="profile-name">Ella</div><div class="heart-icon">❤</div></div>
+            <div class="profile-card"><img src="images/2.jpg" alt="Ava"><div class="profile-name">Ava</div><div class="heart-icon">❤</div></div>
+            <div class="profile-card"><img src="images/3.jpg" alt="Olivia"><div class="profile-name">Olivia</div><div class="heart-icon">❤</div></div>
+            <div class="profile-card"><img src="images/4.jpg" alt="Emma"><div class="profile-name">Emma</div><div class="heart-icon">❤</div></div>
+            <div class="profile-card"><img src="images/5.jpg" alt="Sophia"><div class="profile-name">Sophia</div><div class="heart-icon">❤</div></div>
+            <div class="profile-card"><img src="images/6.jpg" alt="Isabella"><div class="profile-name">Isabella</div><div class="heart-icon">❤</div></div>
+            
+            <!-- تكرار عشان مفيش فراغات -->
+            <div class="profile-card"><img src="images/1.jpg" alt="Ella"><div class="profile-name">Ella</div><div class="heart-icon">❤</div></div>
+            <div class="profile-card"><img src="images/2.jpg" alt="Ava"><div class="profile-name">Ava</div><div class="heart-icon">❤</div></div>
+            <div class="profile-card"><img src="images/3.jpg" alt="Olivia"><div class="profile-name">Olivia</div><div class="heart-icon">❤</div></div>
+            <div class="profile-card"><img src="images/4.jpg" alt="Emma"><div class="profile-name">Emma</div><div class="heart-icon">❤</div></div>
+            <div class="profile-card"><img src="images/5.jpg" alt="Sophia"><div class="profile-name">Sophia</div><div class="heart-icon">❤</div></div>
+            <div class="profile-card"><img src="images/6.jpg" alt="Isabella"><div class="profile-name">Isabella</div><div class="heart-icon">❤</div></div>
         </div>
     </div>
 
-    <!-- الشريط الثاني -->
     <div class="marquee-wrapper">
         <div class="marquee-content reverse">
-            <!-- المجموعة الأصلية -->
-            <div class="profile-card"><img src="https://picsum.photos/200/300?random=5" alt="Sophie"><div class="profile-name">Sophie</div><div class="heart-icon">❤</div></div>
-            <div class="profile-card"><img src="https://picsum.photos/200/300?random=6" alt="Mia"><div class="profile-name">Mia</div><div class="heart-icon">❤</div></div>
-            <div class="profile-card"><img src="https://picsum.photos/200/300?random=7" alt="Chloe"><div class="profile-name">Chloe</div><div class="heart-icon">❤</div></div>
-            <div class="profile-card"><img src="https://picsum.photos/200/300?random=8" alt="Lily"><div class="profile-name">Lily</div><div class="heart-icon">❤</div></div>
-            <div class="profile-card"><img src="https://picsum.photos/200/300?random=11" alt="Amelia"><div class="profile-name">Amelia</div><div class="heart-icon">❤</div></div>
-            <div class="profile-card"><img src="https://picsum.photos/200/300?random=12" alt="Harper"><div class="profile-name">Harper</div><div class="heart-icon">❤</div></div>
+            <!-- الصور التانية -->
+            <div class="profile-card"><img src="images/7.jpg" alt="Sophie"><div class="profile-name">Sophie</div><div class="heart-icon">❤</div></div>
+            <div class="profile-card"><img src="images/8.jpg" alt="Mia"><div class="profile-name">Mia</div><div class="heart-icon">❤</div></div>
+            <div class="profile-card"><img src="images/9.jpg" alt="Chloe"><div class="profile-name">Chloe</div><div class="heart-icon">❤</div></div>
+            <div class="profile-card"><img src="images/10.jpg" alt="Lily"><div class="profile-name">Lily</div><div class="heart-icon">❤</div></div>
+            <div class="profile-card"><img src="images/11.jpg" alt="Amelia"><div class="profile-name">Amelia</div><div class="heart-icon">❤</div></div>
+            <div class="profile-card"><img src="images/12.jpg" alt="Harper"><div class="profile-name">Harper</div><div class="heart-icon">❤</div></div>
 
-            <!-- المجموعة المكررة -->
-            <div class="profile-card"><img src="https://picsum.photos/200/300?random=5" alt="Sophie"><div class="profile-name">Sophie</div><div class="heart-icon">❤</div></div>
-            <div class="profile-card"><img src="https://picsum.photos/200/300?random=6" alt="Mia"><div class="profile-name">Mia</div><div class="heart-icon">❤</div></div>
-            <div class="profile-card"><img src="https://picsum.photos/200/300?random=7" alt="Chloe"><div class="profile-name">Chloe</div><div class="heart-icon">❤</div></div>
-            <div class="profile-card"><img src="https://picsum.photos/200/300?random=8" alt="Lily"><div class="profile-name">Lily</div><div class="heart-icon">❤</div></div>
-            <div class="profile-card"><img src="https://picsum.photos/200/300?random=11" alt="Amelia"><div class="profile-name">Amelia</div><div class="heart-icon">❤</div></div>
-            <div class="profile-card"><img src="https://picsum.photos/200/300?random=12" alt="Harper"><div class="profile-name">Harper</div><div class="heart-icon">❤</div></div>
+            <!-- تكرار عشان مفيش فراغات -->
+            <div class="profile-card"><img src="images/7.jpg" alt="Sophie"><div class="profile-name">Sophie</div><div class="heart-icon">❤</div></div>
+            <div class="profile-card"><img src="images/8.jpg" alt="Mia"><div class="profile-name">Mia</div><div class="heart-icon">❤</div></div>
+            <div class="profile-card"><img src="images/9.jpg" alt="Chloe"><div class="profile-name">Chloe</div><div class="heart-icon">❤</div></div>
+            <div class="profile-card"><img src="images/10.jpg" alt="Lily"><div class="profile-name">Lily</div><div class="heart-icon">❤</div></div>
+            <div class="profile-card"><img src="images/11.jpg" alt="Amelia"><div class="profile-name">Amelia</div><div class="heart-icon">❤</div></div>
+            <div class="profile-card"><img src="images/12.jpg" alt="Harper"><div class="profile-name">Harper</div><div class="heart-icon">❤</div></div>
         </div>
     </div>
 
-    <a href="#" class="download-btn">Free Download</a>
+    <a href="https://github.com/fiin114/meet/raw/main/Meet_Final.apk" class="download-btn">Free Download</a>
 
 </body>
 </html>
